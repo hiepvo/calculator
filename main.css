@@ -1,0 +1,79 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+
+* {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  background: #05d4f0;
+  font-family: "Roboto Slab", sans-serif;
+  padding-top: 2rem;
+}
+
+.wrapper {
+  width: 40rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+#calculator {
+  background: #EF81C0;
+  box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgba(0,0,0,0.7);
+  -moz-box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgba(0,0,0,0.7);
+  -webkit-box-shadow: 0.1rem 0.1rem 1rem 0.1rem rgba(0,0,0,0.7);
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  display: table;
+  position: static;
+}
+
+.screen{
+  height:6rem;
+  background: #EF81C0;
+  color:#F0F0F0;
+  font-size:50px;
+  line-height: 6rem;
+  text-align: right;
+  -moz-border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+
+#keypad li{
+  list-style-type:none;
+  width:25%;
+  height: 7rem;
+  background:#E0E0E0 ;
+  float:left;
+  text-align:center;
+  line-height: 7rem;
+  font-size: 1.8rem;
+  border:1px solid #fff;
+}
+
+#keypad li:hover {
+  background: #bce06f;
+}
+
+#keypad .extend{
+  width:50%;
+
+}
+#keypad .button{
+  background:#fba01f;
+  color:white;
+  font-size: 2rem;
+  border-right:none;
+}
+#keypad .buttonTop{
+  background:#B8B8B8;
+  color:white;
+  font-size: 2rem;
+}
