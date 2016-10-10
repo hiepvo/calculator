@@ -1,4 +1,4 @@
-[demo site]: https://hiepvo.github.io/calculator/
+[live site]: https://hiepvo.github.io/calculator/
 #Calculator
 
-[Demo Site]
+[Live Site]
