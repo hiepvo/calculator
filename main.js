@@ -3,8 +3,10 @@
  */
 (function(){
   var tempVal   = [];
+  var result    = [];
   var buttonId  = "";
   var buttonVal = "";
+  var operators = "+-*/";
   var ul        = document.getElementById("keys");
   var resultObj = document.getElementsByClassName("result")[0];
   ul.addEventListener("click", function(e){
@@ -21,49 +23,74 @@
             //check if there is minus sign before number then set it to 0
             if(tempVal.length === 2 && tempVal[0] === "&minus;"){
               tempVal = [];
+              result  = [];
             }
-            else
+            else{
               tempVal.splice(-1, 1); //remove last item from an array
+              result.splice(-1, 1);
+            }
           }
           else{
             tempVal = [];
+            result  = [];
           }
           showData(tempVal.join(''));
           break;
         case "neg":
           if(tempVal.length !== 0){
             if(tempVal[0] !== "&minus;"){ // check if first item is minus sign
-              tempVal.unshift("&minus;"); // if no add it
+              tempVal.unshift("&minus;"); // if not add it
+              result.unshift("&minus;");
             }
             else{
               tempVal.shift(); // remove minus sign
+              result.shift();
             }
           }
+
           showData(tempVal.join(''));
           break;
         case "equal":
-          showData(eval(tempVal.join('')));
+          showData(eval(result.join('')));
           break;
         default:
-          tempVal.push(buttonVal);
-          //check if string start with one of these operators (+, - , * , /, =)
-          if(tempVal.length === 1 && (buttonId === 'divide' || buttonId === 'times' || buttonId === 'minus' || buttonId === 'plus' || buttonId === 'equal')){
-            tempVal = [];
+          switch(buttonId){
+            case "divide":
+              if(isConsecutiveOperator(result, "/") === false){
+                result.push("/");
+                tempVal.push(buttonVal);
+              }
+              break;
+            case "times":
+              if(isConsecutiveOperator(result, "*") === false){
+                result.push("*");
+                tempVal.push(buttonVal);
+              }
+              break;
+            case "minus":
+              if(isConsecutiveOperator(result, "-") === false){
+                result.push("-");
+                tempVal.push(buttonVal);
+              }
+              break;
+            case "plus":
+              if(isConsecutiveOperator(result, "+") === false){
+                result.push("+");
+                tempVal.push(buttonVal);
+              }
+              break;
+            default:
+              result.push(buttonId);
+              break;
           }
-
-          /*
-           //check if two operator after each other
-           if(tempVal.length > 1){
-           var i = 0;
-           for(i; i < tempVal.length; i++){
-           if(operators.indexOf(tempVal[i]) > -1){
-           alert('')
-           if(operators.indexOf(tempVal[i]) === operators.indexOf(tempVal[i + 1])){
-           tempVal = "";
-           }
-           }
-           }
-           }*/
+          //check if string start with one of these operators (+, - , * , /, =)
+          if(tempVal.length === 0 && (buttonId === 'divide' || buttonId === 'times' || buttonId === 'minus' || buttonId === 'plus' || buttonId === 'equal')){
+            tempVal.push("0");
+            result = [];
+          }
+          if(validator.isNumber(buttonId)){
+            tempVal.push(buttonVal);
+          }
           showData(tempVal.join(''));
           break;
       }
@@ -77,6 +104,15 @@
     } else{
       resultObj.innerHTML = data;
     }
+  }
+
+  //check if the operator is consecutive
+  function isConsecutiveOperator(list, item){
+    console.log(list[list.length - 1]);
+    if(operators.indexOf(item) && operators.indexOf(list[list.length - 1]) > -1){
+      return true;
+    }
+    return false;
   }
 })
 ();
