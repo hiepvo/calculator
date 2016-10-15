@@ -13,6 +13,8 @@ html {
 body {
   /*background: #05d4f0;*/
   background: linear-gradient(#136a8a, #267871);
+  background: linear-gradient(#83a4d4, #b6fbff);
+
   font-family: "Roboto Slab", sans-serif;
   padding-top: 2rem;
 }
@@ -35,16 +37,17 @@ body {
   display: table;
   cursor: move;
   position: relative;
-  background: linear-gradient(#606c88, #3f4c6b);
+  background: linear-gradient(#517fa4, #243949);
+
+
 
 }
 
 .screen {
   height: 15rem;
   background: linear-gradient(#83a4d4, #b6fbff);
-
   /*background: #EF81C0;*/
-  color: #F0F0F0;
+  color: black;
   line-height: 8rem;
   text-align: right;
   -moz-border-radius: 0.5rem;
@@ -69,6 +72,10 @@ body {
 
 }
 
+#keypad {
+  margin: 0 auto;
+}
+
 #keypad li {
   list-style-type: none;
   width: 25%;
@@ -80,17 +87,16 @@ body {
   font-size: 6rem;
   border: 1px solid #fff;
   cursor: default;
+
 }
 
 #keypad li:hover {
   /*background: #bce06f;*/
   background: linear-gradient(#DAD299, #B0DAB9);
-
 }
 
 #keypad .extend {
   width: 50%;
-
 }
 
 #keypad .button {
@@ -107,6 +113,8 @@ body {
   cursor: default;
 }
 
-[draggable=true] {
-  cursor: move;
+#keys {
+  padding-left: 20px;
+  padding-right: 20px;
 }
+

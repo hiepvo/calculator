@@ -54,8 +54,9 @@
            }
 
            showData(tempVal.join(''));
-           break;
+
            */
+          break;
         case "equal":
           lastResult = eval(result.join(''));
           result     = [];
@@ -83,7 +84,6 @@
     }
   });
 
-
   function insertOperatorsToArray(buttonId, buttonVal){
     switch(buttonId){
       case "divide":
@@ -110,6 +110,12 @@
           tempVal.push(buttonVal);
         }
         break;
+      case "mod":
+        if(isConsecutiveOperator(result, "%") === false){
+          result.push("%");
+          tempVal.push(buttonVal);
+        }
+        break;
       default:
         result.push(buttonId);
         break;
@@ -127,8 +133,7 @@
 
   //check if the operator is consecutive
   function isConsecutiveOperator(list, item){
-    var operators = "+-*/";
-    console.log(list[list.length - 1]);
+    var operators = "+-*/%";
     if(operators.indexOf(item) && operators.indexOf(list[list.length - 1]) > -1){
       return true;
     }

@@ -14,7 +14,6 @@
 // Will be called when user dragging an element
   function move_elem(e){
     x_pos = document.all ? window.event.clientX : e.pageX;
-    console.log(x_pos)
     y_pos = document.all ? window.event.clientY : e.pageY;
     if(selected !== null){
       selected.style.left = (x_pos - x_elem) + 'px';
