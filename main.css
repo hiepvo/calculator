@@ -11,10 +11,7 @@ html {
 }
 
 body {
-  /*background: #05d4f0;*/
-  background: linear-gradient(#136a8a, #267871);
-  background: linear-gradient(#83a4d4, #b6fbff);
-
+  background: #FBFFFE;
   font-family: "Roboto Slab", sans-serif;
   padding-top: 2rem;
 }
@@ -33,21 +30,17 @@ body {
   -moz-border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   border-radius: 0.5rem;
-  width: 46rem;
+  width: 25%;
   display: table;
   cursor: move;
   position: relative;
-  background: linear-gradient(#517fa4, #243949);
-
-
-
+  background: #22B7F2;
+  margin: 0 auto;
 }
 
 .screen {
-  height: 15rem;
-  background: linear-gradient(#83a4d4, #b6fbff);
-  /*background: #EF81C0;*/
-  color: black;
+  height: 10rem;
+  color: #FBFFFE;
   line-height: 8rem;
   text-align: right;
   -moz-border-radius: 0.5rem;
@@ -65,11 +58,9 @@ body {
 }
 
 .result {
-  height: 7.5rem;
-  width: 45rem;
-  font-size: 4rem;
+  line-height: 3;
+  font-size: 5rem;
   overflow: hidden;
-
 }
 
 #keypad {
@@ -79,11 +70,11 @@ body {
 #keypad li {
   list-style-type: none;
   width: 25%;
-  background: #E0E0E0;
+  background: #1C2524;
+  color: #ffffff;
   float: left;
   text-align: center;
-  height: 10rem;
-  line-height: 10rem;
+  height: 8rem;
   font-size: 6rem;
   border: 1px solid #fff;
   cursor: default;
@@ -100,21 +91,35 @@ body {
 }
 
 #keypad .button {
-  background: #fba01f;
+  background: #590202;
   color: white;
   font-size: 6rem;
   border-right: none;
 }
 
 #keypad .buttonTop {
-  background: #B8B8B8;
+  background: #FC5A2C;
   color: white;
   font-size: 4rem;
   cursor: default;
 }
 
 #keys {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0;
 }
 
+/*-------- media queries --------*/
+@media screen and (max-width: 980px) {
+  #calculator {
+    width: 30rem;
+  }
+
+  .screen {
+    height: 10rem;
+  }
+
+  .result {
+    line-height: 15rem;
+  }
+
+}
