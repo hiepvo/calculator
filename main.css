@@ -109,6 +109,7 @@ body {
 }
 
 /*-------- media queries --------*/
+
 @media screen and (max-width: 980px) {
   #calculator {
     width: 30rem;
@@ -121,5 +122,4 @@ body {
   .result {
     line-height: 15rem;
   }
-
 }
