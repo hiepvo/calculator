@@ -40,30 +40,13 @@
           }
           showData(tempVal.join(''));
           break;
-        case "neg":
-          /*
-           if(tempVal.length !== 0){
-           if(tempVal[0] !== "&minus;"){ // check if first item is minus sign
-           tempVal.unshift("&minus;"); // if not add it
-           result.unshift("&minus;");
-           }
-           else{
-           tempVal.shift(); // remove minus sign
-           result.shift();
-           }
-           }
-
-           showData(tempVal.join(''));
-
-           */
-          break;
         case "equal":
           lastResult = eval(result.join(''));
           result     = [];
           tempVal    = [];
-          result.push(lastResult);
+          result.push(lastResult.toExponential());
           tempVal.push(lastResult);
-          showData(lastResult);
+          showData(lastResult.toExponential(3));
           break;
         default:
           insertOperatorsToArray(buttonId, buttonVal);

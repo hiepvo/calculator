@@ -8,6 +8,9 @@
 
 html {
   font-size: 62.5%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -51,16 +54,15 @@ body {
 
 }
 
-.mResult {
-  height: 7.5rem;
-  width: 45rem;
-  overflow: hidden;
-}
-
 .result {
-  line-height: 3;
-  font-size: 5rem;
+  max-width: 28rem;
   overflow: hidden;
+  padding-top: 2rem;
+  -webkit-flex: 1.1;
+  flex: 1.1;
+  display: flex;
+  font-size: 4rem;
+  justify-content: flex-end;
 }
 
 #keypad {
@@ -93,15 +95,16 @@ body {
 #keypad .button {
   background: #590202;
   color: white;
-  font-size: 6rem;
+  font-size: 5rem;
   border-right: none;
 }
 
 #keypad .buttonTop {
   background: #FC5A2C;
   color: white;
-  font-size: 4rem;
+  font-size: 5rem;
   cursor: default;
+  padding-top: 0.5rem;
 }
 
 #keys {
