@@ -44,11 +44,20 @@
           lastResult = eval(result.join(''));
           result     = [];
           tempVal    = [];
-          result.push(lastResult.toExponential());
+          result.push(lastResult);
           tempVal.push(lastResult);
-          showData(lastResult.toExponential(3));
+
+          if(result.toString().length > 16){
+            showData(lastResult.toExponential(3));
+          }
+          else
+            showData(lastResult);
           break;
         default:
+
+          if (lastResult !== "" && (buttonId !== 'divide' && buttonId !== 'times' && buttonId !== 'minus' && buttonId !== 'plus')){
+            tempVal = [];
+          }
           insertOperatorsToArray(buttonId, buttonVal);
           //check if string start with one of these operators (+, - , * , /, =)
           if(tempVal.length === 0 && (buttonId === 'divide' || buttonId === 'times' || buttonId === 'minus' || buttonId === 'plus' || buttonId === 'equal')){
@@ -70,30 +79,50 @@
   function insertOperatorsToArray(buttonId, buttonVal){
     switch(buttonId){
       case "divide":
+        if(result.length === 0){
+          tempVal.push("0");
+          result.push("0");
+        }
         if(isConsecutiveOperator(result, "/") === false){
           result.push("/");
           tempVal.push(buttonVal);
         }
         break;
       case "times":
+        if(result.length === 0){
+          tempVal.push("0");
+          result.push("0");
+        }
         if(isConsecutiveOperator(result, "*") === false){
           result.push("*");
           tempVal.push(buttonVal);
         }
         break;
       case "minus":
+        if(result.length === 0){
+          tempVal.push("0");
+          result.push("0");
+        }
         if(isConsecutiveOperator(result, "-") === false){
           result.push("-");
           tempVal.push(buttonVal);
         }
         break;
       case "plus":
+        if(result.length === 0){
+          tempVal.push("0");
+          result.push("0");
+        }
         if(isConsecutiveOperator(result, "+") === false){
           result.push("+");
           tempVal.push(buttonVal);
         }
         break;
       case "mod":
+        if(result.length === 0){
+          tempVal.push("0");
+          result.push("0");
+        }
         if(isConsecutiveOperator(result, "%") === false){
           result.push("%");
           tempVal.push(buttonVal);
